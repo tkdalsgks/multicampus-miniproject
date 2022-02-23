@@ -1,31 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="user-scalable=no, width=device-width, initial-scale=1"
-    />
-    <title>자유게시판</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/index.css" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1" />
+  <title>자유 게시판</title>
 
-    <!-- Jquery -->
-    <script src="js/jquery-3.6.0.min.js"></script>
-  </head>
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/freeboard_list.css">
+  <link rel="stylesheet" href="css/angleup.css" />
 
-  <body>
-    <!-- 헤더 import -->
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $("#includeHead").load("./header.html"); // 원하는 파일 경로를 삽입하면 된다
+  <!-- Jquery -->
+  <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <!-- 헤더 import -->
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#includeHead").load("./header.html", function () {
+        // load메소드로 페이지를 불러오고 DOM을 조작할려면 콜백함수 사용 
+        let html = `
+        <li id="boardWrite">
+            <a href="./freeboard_input.html">글 작성</a>
+        </li>`;
+
+        $("#menu ul").append(html);
+
       });
-    </script>
-    <div id="includeHead"></div>
-    <!-- end of 헤더 import -->
 
-    <section></section>
-    <footer></footer>
-  </body>
+    });
+  </script>
+  <div id="includeHead"></div>
+  <!-- end of 헤더 import -->
+
+  <section class="boardSection">
+    <ul class="boardList">
+      <li class="boardHead">
+        <span style="margin-left:13px;">번호</span>
+        <span style="margin-left:30px;">제목</span>
+        <span></span>
+        <span>내용</span>
+        <span></span>
+        <span style="margin-left: 20px;">작성자</span>
+        <span></span>
+        <span>작성일</span>
+        <span></span>
+        <span  style="margin-right: 30px;">조회수</span>
+        <span style="width:max-content"></span>
+        <span></span>
+      </li>
+      <!-- JS 영역 -->
+    </ul>
+  </section>
+  <footer>
+    <div class="angleup">
+      <a href="#" title=”맨위로">
+        <img src="images/angleup.png" alt="맨위로">
+      </a>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="./js/freeboard_list.js"></script>
+</body>
+
 </html>
